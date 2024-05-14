@@ -3,18 +3,25 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="cchuquitarcoT6.Views.vEstudiante"
              Title="vEstudiante">
-    <VerticalStackLayout>
-        <Label 
+    <ScrollView>
+        <VerticalStackLayout Padding="20">
+            <Label 
             Text="Consumo de REST!"
             FontSize="Title"
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
-        
-        <ListView x:Name="listEstudiante">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <Frame BorderColor="#0487D9" BackgroundColor="Transparent">
-                        <Grid RowSpacing="5">
+
+            <Label 
+            Text="Listado de Estudiantes"
+            FontSize="Subtitle"
+                TextColor="#2874A6"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+
+            <ListView x:Name="listEstudiante" SeparatorColor="#0487D9" SeparatorVisibility="None">
+                <ListView.Header>
+                    <StackLayout BackgroundColor="#F1C40F">
+                        <Grid>
                             <Grid.RowDefinitions>
                                 <RowDefinition />
                             </Grid.RowDefinitions>
@@ -24,22 +31,47 @@
                                 <ColumnDefinition/>
                                 <ColumnDefinition/>
                             </Grid.ColumnDefinitions>
-                            <Label Text="{Binding Id}" 
-                           Grid.Column="0"
-                           VerticalOptions="Center"/>
-                            <Label Text="{Binding Nombre}"
-                           Grid.Column="1"
-                           VerticalOptions="Center"/>
-                            <Label Text="{Binding Apellido}"
-                           Grid.Column="2"
-                           VerticalOptions="Center"/>
-                            <Label Text="{Binding Edad}"
-                           Grid.Column="3"
-                           VerticalOptions="Center"/>
+                            <Label Text="Codigo" Grid.Column="0" TextColor="Black" FontSize="16" HorizontalOptions="Center" VerticalOptions="Center" />
+                            <Label Text="Nombre" Grid.Column="1" TextColor="Black" FontSize="16" HorizontalOptions="Center" VerticalOptions="Center" />
+                            <Label Text="Apellido" Grid.Column="2" TextColor="Black" FontSize="16" HorizontalOptions="Center" VerticalOptions="Center" />
+                            <Label Text="Edad" FontSize="16" Grid.Column="3" TextColor="Black" HorizontalOptions="Center" VerticalOptions="Center" />
                         </Grid>
-                    </Frame>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
-    </VerticalStackLayout>
+                    </StackLayout>
+                </ListView.Header>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout>
+                                <Frame BorderColor="#0487D9" BackgroundColor="Transparent" CornerRadius="1">
+                                    <Grid RowSpacing="5">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition />
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition/>
+                                            <ColumnDefinition/>
+                                            <ColumnDefinition/>
+                                            <ColumnDefinition/>
+                                        </Grid.ColumnDefinitions>
+                                        <Label Text="{Binding codigo}" 
+                                               Grid.Column="0"
+                                               VerticalOptions="Center"/>
+                                        <Label Text="{Binding nombre}"
+                                               Grid.Column="1"
+                                               VerticalOptions="Center"/>
+                                        <Label Text="{Binding apellido}"
+                                               Grid.Column="2"
+                                               VerticalOptions="Center"/>
+                                        <Label Text="{Binding edad}"
+                                               Grid.Column="3"
+                                               VerticalOptions="Center"/>
+                                    </Grid>
+                                </Frame>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>

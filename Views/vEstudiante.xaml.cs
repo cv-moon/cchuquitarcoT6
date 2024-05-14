@@ -6,7 +6,7 @@ namespace cchuquitarcoT6.Views;
 
 public partial class vEstudiante : ContentPage
 {
-	private const string url = "http://10.2.199.46/moviles/wsestudiantes.php";
+	private const string url = "http://192.168.3.11/moviles/wsestudiantes.php";
 	private readonly HttpClient cliente = new HttpClient();
 	private ObservableCollection<Estudiante> est;
 	public vEstudiante()

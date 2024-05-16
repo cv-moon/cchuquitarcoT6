@@ -4,7 +4,7 @@
              x:Class="cchuquitarcoT6.Views.vEstudiante"
              Title="vEstudiante">
     <ScrollView>
-        <VerticalStackLayout Padding="20">
+        <VerticalStackLayout Padding="20" Spacing="20">
             <Label 
             Text="Consumo de REST!"
             FontSize="Title"
@@ -18,7 +18,7 @@
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
 
-            <ListView x:Name="listEstudiante" SeparatorColor="#0487D9" SeparatorVisibility="None">
+            <ListView x:Name="listEstudiante" ItemSelected="listEstudiante_ItemSelected" SeparatorColor="#0487D9" SeparatorVisibility="None">
                 <ListView.Header>
                     <StackLayout BackgroundColor="#F1C40F">
                         <Grid>
@@ -72,6 +72,10 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
+
+            <Button x:Name="btnAgregar"
+                    Text="Agregar Estudiante"
+                    Clicked="btnAgregar_Clicked" />
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

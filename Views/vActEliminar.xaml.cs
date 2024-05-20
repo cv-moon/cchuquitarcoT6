@@ -5,7 +5,7 @@ namespace cchuquitarcoT6.Views;
 
 public partial class vActEliminar : ContentPage
 {
-    string url = "http://192.168.100.109/moviles/wsestudiantes.php";
+    string url = "http://10.2.199.46/moviles/wsestudiantes.php";
     public vActEliminar(Estudiante datos)
     {
         InitializeComponent();
@@ -24,9 +24,7 @@ public partial class vActEliminar : ContentPage
             parametros.Add("nombre", txtNombre.Text);
             parametros.Add("apellido", txtApellido.Text);
             parametros.Add("edad", txtEdad.Text);
-
-            cliente.UploadValues($"{url}?codigo={txtCodigo.Text}", "PUT", parametros);
-            DisplayAlert("Alerta!", cliente.ToString(), "Cerrar");
+            cliente.UploadValues($"{url}?codigo={txtCodigo.Text}&nombre={txtNombre.Text}&apellido={txtApellido.Text}&edad={txtEdad.Text}", "PUT", parametros);
             Navigation.PushAsync(new vEstudiante());
         }
         catch (Exception ex)
@@ -42,7 +40,6 @@ public partial class vActEliminar : ContentPage
             WebClient cliente = new WebClient();
             var parametros = new System.Collections.Specialized.NameValueCollection();
             //parametros.Add("codigo", txtCodigo.Text);
-
             cliente.UploadValues($"{url}?codigo={txtCodigo.Text}", "DELETE", parametros);
             Navigation.PushAsync(new vEstudiante());
         }
